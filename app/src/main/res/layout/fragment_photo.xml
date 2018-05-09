@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:background="@color/greyColor"
+    android:layout_height="match_parent">
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_marginLeft="1dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginRight="1dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize = "BANNER"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adUnitId="@string/admob_banner_unit_id"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/adView"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

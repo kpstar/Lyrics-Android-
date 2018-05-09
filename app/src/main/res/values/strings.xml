@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Lyrics</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="song_title">Songs</string>
+    <string name="lyrics_title">Lyrics</string>
+    <string name="video_title">Videos</string>
+    <string name="photo_title">Concert Photos</string>
+    <string name="aboutus_title">About Us</string>
+    <string name="recording_title">Recordings</string>
+    <string name="facebook_title">Facebook</string>
+    <string name="other_option">Others</string>
+    <string name="favourite_title">Favourite</string>
+    <string name="rate_title">Rate Us</string>
+    <string name="google_title">Google</string>
+    <string name="facebook_app_id">854466738084021</string>
+    <string name="fb_login_protocol_scheme">fb854466738084021</string>
+    <string name="admob_banner_unit_id">ca-app-pub-5557706460832127/6690958403</string>
+    <string name="admob_app_id">ca-app-pub-5557706460832127~8770326833</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_play">PlayActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>

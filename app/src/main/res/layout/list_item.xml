@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="3dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="3dp"
+    android:background="@color/whiteColor"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:layout_marginLeft="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/blackColor"
+        android:text="Title of listItem" />
+
+    <TextView
+        android:id="@+id/bandnameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTxt"
+        android:textSize="15sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:text="Band Name" />
+</RelativeLayout>

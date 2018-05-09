@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:yourapp="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/recordAction"
+        android:title="@string/recording_title"
+        android:icon="@drawable/recordone"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/favouAction"
+        android:title="@string/favourite_title"
+        android:icon="@drawable/favouriteone"
+        app:showAsAction="always" />
+</menu>

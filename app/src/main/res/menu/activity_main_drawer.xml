@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_songs"
+            android:icon="@drawable/ic_menu_song"
+            android:title="Songs" />
+        <item
+            android:id="@+id/nav_videos"
+            android:icon="@drawable/ic_menu_play"
+            android:title="Videos" />
+        <item
+            android:id="@+id/nav_photos"
+            android:icon="@drawable/ic_menu_photos"
+            android:title="Concert Photos" />
+        <item
+            android:id="@+id/nav_facebook"
+            android:icon="@drawable/ic_menu_facebook"
+            android:title="Facebook" />
+        <item
+            android:id="@+id/nav_google"
+            android:icon="@drawable/ic_menu_google"
+            android:title="Google" />
+        <item
+            android:id="@+id/nav_favourite"
+            android:icon="@drawable/ic_menu_favourite"
+            android:title="Favourite" />
+        <item
+            android:id="@+id/nav_recording"
+            android:icon="@drawable/ic_menu_recording"
+            android:title="Recordings" />
+    </group>
+
+    <item
+        android:id="@+id/nav_rateus"
+        android:icon="@drawable/ic_menu_rateus"
+        android:title="Rate Us" />
+    <item
+        android:id="@+id/nav_aboutus"
+        android:icon="@drawable/ic_menu_aboutus"
+        android:title="About Us" />
+
+</menu>
