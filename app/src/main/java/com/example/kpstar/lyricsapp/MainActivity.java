@@ -2,6 +2,7 @@ package com.example.kpstar.lyricsapp;
 
 import android.Manifest;
 import android.accounts.AccountManager;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.SearchManager;
 import android.content.Context;
@@ -22,6 +23,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.kpstar.lyricsapp.customize.WSDatabase;
@@ -91,20 +93,21 @@ public class MainActivity extends AppCompatActivity
         return searchView;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//
+//        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_search) {
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -129,12 +132,14 @@ public class MainActivity extends AppCompatActivity
             selectedFragment = new GoogleFragment();
         } else if (id == R.id.nav_favourite) {
             getSupportActionBar().setTitle("Favourite");
+
             selectedFragment = new FavouriteFragment();
         } else if (id == R.id.nav_aboutus) {
             getSupportActionBar().setTitle("About Us");
             selectedFragment = new AboutusFragment();
         } else if (id == R.id.nav_rateus) {
             getSupportActionBar().setTitle("Rate Us");
+
             selectedFragment = new RateusFragment();
         } else if (id == R.id.nav_recording) {
             getSupportActionBar().setTitle("Recordings");

@@ -46,6 +46,10 @@ public class videorock_adapter extends RecyclerView.Adapter<videorock_adapter.My
         mContext = context;
     }
 
+    public List<video_item> getmFilteritems() {
+        return mFilteritems;
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView title, bandname;
 

@@ -8,6 +8,9 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -51,7 +54,7 @@ public class FavouriteFragment extends Fragment implements favourite_adapter.Rec
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
+        setHasOptionsMenu(true);
         return view;
     }
 
@@ -60,5 +63,13 @@ public class FavouriteFragment extends Fragment implements favourite_adapter.Rec
         Intent mIntent = new Intent(this.getActivity(), PlayActivity.class);
         mIntent.putExtra("ID", songItems.get(position).getID());
         getActivity().startActivity(mIntent);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+        final MenuItem item = menu.findItem(R.id.action_search);
+        item.setVisible(false);
     }
 }

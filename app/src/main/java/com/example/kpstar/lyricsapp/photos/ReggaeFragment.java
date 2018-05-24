@@ -84,6 +84,8 @@ public class ReggaeFragment extends Fragment implements reggaephoto_adapter.Recy
     @Override
     public void recyclerViewListClicked(View v, int position) {
         Intent mIntent = new Intent(this.getActivity(), PhotoActivity.class);
+        songItems = null;
+        songItems = (ArrayList<photo_item>) adapter.getmFilteritems();
         mIntent.putExtra("PHOTONAME", songItems.get(position).getTitle());
         mIntent.putExtra("PHOTOS", songItems.get(position).getPhoto());
         getActivity().startActivity(mIntent);

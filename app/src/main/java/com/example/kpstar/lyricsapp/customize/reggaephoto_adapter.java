@@ -36,6 +36,10 @@ public class reggaephoto_adapter extends RecyclerView.Adapter<reggaephoto_adapte
         mContext = context;
     }
 
+    public List<photo_item> getmFilteritems() {
+        return mFilteritems;
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView title;
 

@@ -45,6 +45,10 @@ public class reggaeitem_adapter extends RecyclerView.Adapter<reggaeitem_adapter.
         mContext = context;
     }
 
+    public List<song_item> getmFilteritems() {
+        return  mFilteritems;
+    }
+
     @Override
     public Filter getFilter() {
         return new Filter() {

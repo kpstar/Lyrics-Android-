@@ -47,6 +47,10 @@ public class videoreggae_adapter extends RecyclerView.Adapter<videoreggae_adapte
         mContext = context;
     }
 
+    public List<video_item> getmFilteritems() {
+        return mFilteritems;
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView title, bandname;
 

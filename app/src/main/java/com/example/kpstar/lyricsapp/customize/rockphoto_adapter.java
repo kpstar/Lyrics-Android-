@@ -35,6 +35,10 @@ public class rockphoto_adapter extends RecyclerView.Adapter<rockphoto_adapter.My
         mContext = context;
     }
 
+    public List<photo_item> getmFilteritems() {
+        return mFilteritems;
+    }
+
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView title;
 

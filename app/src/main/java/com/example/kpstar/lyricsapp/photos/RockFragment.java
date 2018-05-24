@@ -83,6 +83,8 @@ public class RockFragment extends Fragment implements rockphoto_adapter.Recycler
     @Override
     public void recyclerViewListClicked(View v, int position) {
         Intent mIntent = new Intent(this.getActivity(), PhotoActivity.class);
+        photoItems = null;
+        photoItems = (ArrayList<photo_item>) adapter.getmFilteritems();
         mIntent.putExtra("PHOTONAME", photoItems.get(position).getTitle());
         mIntent.putExtra("PHOTOS", photoItems.get(position).getPhoto());
         getActivity().startActivity(mIntent);

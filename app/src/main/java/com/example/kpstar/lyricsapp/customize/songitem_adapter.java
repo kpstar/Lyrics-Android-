@@ -38,6 +38,10 @@ public class songitem_adapter extends RecyclerView.Adapter<songitem_adapter.MyVi
         return mContext;
     }
 
+    public List<song_item> getmFilteritems() {
+        return  mFilteritems;
+    }
+
     // Pass in the contact array into the constructor
     public songitem_adapter(Context context, List<song_item> song_items) {
         mSongitems = song_items;

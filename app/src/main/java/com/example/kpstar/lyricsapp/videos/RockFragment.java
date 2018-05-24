@@ -111,6 +111,9 @@ public class RockFragment extends Fragment implements videorock_adapter.Recycler
     @Override
     public void recyclerViewListClicked(View v, int position) {
         Intent mIntent = new Intent(this.getActivity(), YoutubeActivity.class);
+
+        videosItems = null;
+        videosItems = adapter.getmFilteritems();
         mIntent.putExtra("VIDEOID", videosItems.get(position).getUrl());
         mIntent.putExtra("VIDEONAME", videosItems.get(position).getTitle());
         getActivity().startActivity(mIntent);

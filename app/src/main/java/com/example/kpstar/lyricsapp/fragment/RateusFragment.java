@@ -3,7 +3,11 @@ package com.example.kpstar.lyricsapp.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
@@ -40,10 +44,19 @@ public class RateusFragment extends Fragment {
         String url = "https://play.google.com/store/apps/details?id=com.avrea.chords";
 
         WebView webView = (WebView)view.findViewById(R.id.webview);
+        setHasOptionsMenu(true);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(url);
         return view;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+        final MenuItem item = menu.findItem(R.id.action_search);
+        item.setVisible(false);
     }
 
 }

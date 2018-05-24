@@ -93,6 +93,9 @@ public class RockFragment extends Fragment implements songitem_adapter.RecyclerV
     @Override
     public void recyclerViewListClicked(View v, int position) {
         Intent mIntent = new Intent(this.getActivity(), PlayActivity.class);
+
+        songItems = null;
+        songItems = (ArrayList<song_item>) adapter.getmFilteritems();
         mIntent.putExtra("ID", songItems.get(position).getID());
         getActivity().startActivity(mIntent);
     }

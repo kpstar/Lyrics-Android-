@@ -14,6 +14,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -49,6 +52,7 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
     }
 
 
+
     @Override
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,6 +86,8 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
             songItems.add( list[i].getName() );
         }
 
+
+        setHasOptionsMenu(true);
         //songItems = database.getSongItemsFromDatabase(1);
         adapter = new record_adapter(this.getActivity(), songItems, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -174,5 +180,13 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
 
         adapter.notifyItemRemoved(viewHolder.getAdapterPosition());
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+        final MenuItem item = menu.findItem(R.id.action_search);
+        item.setVisible(false);
     }
 }

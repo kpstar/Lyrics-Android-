@@ -274,7 +274,7 @@ public class PlayActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         Date today_time = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("yyyy_MM_dd_h_m_s");
         String formattedDate = df.format(today_time);
-        audioFilePath += "record_"+formattedDate+".aac";
+        audioFilePath += songItem.getTitle() + "_" + formattedDate +".aac";
         recorder.setOutputFile(audioFilePath);
         try {
             recorder.prepare();

@@ -52,9 +52,9 @@ public class WSDatabase extends SQLiteAssetHelper {
     public ArrayList<song_item> getSongItemsFromDatabase(int whatmusic) {
         String strGetsongs;
         if (whatmusic == 0) {
-            strGetsongs = String.format("select * from %s where %s = 'Rock'", lyrics_table, lyrics_category);
+            strGetsongs = String.format("select * from %s where %s = 'Rock' ORDER BY title", lyrics_table, lyrics_category);
         } else {
-            strGetsongs = String.format("select * from %s where %s = 'Reggae'", lyrics_table, lyrics_category);
+            strGetsongs = String.format("select * from %s where %s = 'Reggae' order by title", lyrics_table, lyrics_category);
         }
         Cursor cursor = database.rawQuery(strGetsongs, null);
         ArrayList<song_item> songItems = new ArrayList<song_item>();
@@ -70,9 +70,9 @@ public class WSDatabase extends SQLiteAssetHelper {
     public ArrayList<photo_item> getPhotoItemsFromDatabase(int whatmusic) {
         String strGetphotos;
         if (whatmusic == 0) {
-            strGetphotos = String.format("select * from %s where %s = 'Rock'", lyrics_photo, lyrics_category);
+            strGetphotos = String.format("select * from %s where %s = 'Rock' order by title", lyrics_photo, lyrics_category);
         } else {
-            strGetphotos = String.format("select * from %s where %s = 'Reggae'", lyrics_photo, lyrics_category);
+            strGetphotos = String.format("select * from %s where %s = 'Reggae' order by title", lyrics_photo, lyrics_category);
         }
         Cursor cursor = database.rawQuery(strGetphotos, null);
         ArrayList<photo_item> photoItems = new ArrayList<photo_item>();
@@ -88,9 +88,9 @@ public class WSDatabase extends SQLiteAssetHelper {
     public ArrayList<video_item> getVideoItemsFromDatabase(int whatmusic) {
         String strGetsongs;
         if (whatmusic == 0) {
-            strGetsongs = String.format("select * from %s where %s = 'Rock'", lyrics_video, lyrics_category);
+            strGetsongs = String.format("select * from %s where %s = 'Rock' order by title", lyrics_video, lyrics_category);
         } else {
-            strGetsongs = String.format("select * from %s where %s = 'Reggae'", lyrics_video, lyrics_category);
+            strGetsongs = String.format("select * from %s where %s = 'Reggae' order by title", lyrics_video, lyrics_category);
         }
         Cursor cursor = database.rawQuery(strGetsongs, null);
         ArrayList<video_item> videosItems = new ArrayList<video_item>();
