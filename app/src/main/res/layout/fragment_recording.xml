@@ -6,9 +6,31 @@
     tools:context=".fragment.RecordingFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/whiteColor"
+            android:layout_alignParentBottom="true">
+            <ToggleButton
+                android:id="@+id/normalspeedBtn"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/lyricspause"
+                android:textOff=""
+                android:textOn=""
+                android:text=""/>
+        </RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/relativeLayout"></android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
 </FrameLayout>

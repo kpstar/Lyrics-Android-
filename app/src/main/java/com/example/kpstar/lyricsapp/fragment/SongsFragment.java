@@ -27,9 +27,6 @@ import java.util.List;
  */
 public class SongsFragment extends Fragment {
 
-    // Tab titles
-    private String[] tabs = { "Top Rated", "Games", "Movies" };
-
     public SongsFragment() {
         // Required empty public constructor
     }

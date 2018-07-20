@@ -38,6 +38,7 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -65,6 +66,7 @@ public class PlayActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     private CountDownTimer countDownTimer = null;
     private Boolean isLyrics = false;
     int m = 0;
+    FileInputStream inputStream = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +118,7 @@ public class PlayActivity extends AppCompatActivity implements SeekBar.OnSeekBar
         AssetFileDescriptor afd = null;
         try {
             afd = this.getAssets().openFd(songItem.getSongurl());
+            inputStream = afd.createInputStream();
             mediaPlayer.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
             mediaPlayer.prepare();
         } catch (IOException e) {

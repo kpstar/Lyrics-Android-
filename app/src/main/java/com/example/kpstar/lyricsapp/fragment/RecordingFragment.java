@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.graphics.Canvas;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -20,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.kpstar.lyricsapp.R;
 import com.example.kpstar.lyricsapp.customize.RecyclerItemTouchHelper;
@@ -40,12 +43,11 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  */
 public class RecordingFragment extends Fragment implements record_adapter.RecyclerViewClickListener, RecyclerItemTouchHelper.RecyclerItemTouchHelperListener {
 
-
-    WSDatabase database;
     ArrayList<String> songItems;
-    MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayer = null;
     private record_adapter adapter = null;
     RecyclerView recyclerView = null;
+    ToggleButton startBtn = null;
 
     public RecordingFragment() {
         // Required empty public constructor
@@ -58,13 +60,20 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_reggae, container, false);
+        View view = inflater.inflate(R.layout.fragment_recording, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.recyclerView);
-
-
-
-//        database = new WSDatabase(getContext());
-//        database.open();
+        startBtn = (ToggleButton)view.findViewById(R.id.normalspeedBtn);
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mediaPlayer == null) return;
+                if (mediaPlayer.isPlaying())
+                    mediaPlayer.pause();
+                else {
+                    mediaPlayer.start();
+                }
+            }
+        });
 
         File file = new File(Environment.getExternalStorageDirectory().toString() + "/Lyrics/Records");
 
@@ -88,7 +97,6 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
 
 
         setHasOptionsMenu(true);
-        //songItems = database.getSongItemsFromDatabase(1);
         adapter = new record_adapter(this.getActivity(), songItems, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -123,11 +131,9 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
         return view;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void recyclerViewListClicked(View v, int position) {
-//        Intent mIntent = new Intent(this.getActivity(), PlayActivity.class);
-//        mIntent.putExtra("ID", songItems.get(position));
-//        getActivity().startActivityForResult(mIntent, 200);
 
         if ( mediaPlayer!= null && mediaPlayer.isPlaying()) {
             mediaPlayer.stop();
@@ -139,11 +145,13 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
         try {
             mediaPlayer.setDataSource(Environment.getExternalStorageDirectory()+"/Lyrics/Records/"+songItems.get(position));
             mediaPlayer.prepare();
-            mediaPlayer.start();
+            // mediaPlayer.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+
 
     @Override
     public void onStop() {
@@ -162,8 +170,6 @@ public class RecordingFragment extends Fragment implements record_adapter.Recycl
             mediaPlayer.stop();
             mediaPlayer.release();
         }
-
-
 
         File file = new File(Environment.getExternalStorageDirectory()+"/Lyrics/Records/"+songItems.get(position));
         if (file.exists()) {
